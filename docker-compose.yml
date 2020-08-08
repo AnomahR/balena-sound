@@ -61,6 +61,22 @@ services:
       - 49494:49494
     volumes:
       - snapcast:/var/cache/snapcast
+  version: '2.1'
+networks: {}
+volumes:
+  resin-data: {}
+wm8960-soundcard:
+  build:
+    context: ./wm8960-soundcard
+  privileged: true
+  restart: on-failure
+  network_mode: host
+  volumes:
+    - 'resin-data:/data'
+  labels:
+    io.balena.features.kernel-modules: '1'
+    io.balena.features.firmware: '1'
+    io.balena.features.dbus: '1'
 volumes:
   spotifycache:
   bluetoothcache:

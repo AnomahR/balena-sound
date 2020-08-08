@@ -1,0 +1,3 @@
+[submodule "wm8960-soundcard"]
+	path = wm8960-soundcard
+	url = git@github.com:AnomahR/WM8960-Audio-HAT.git
