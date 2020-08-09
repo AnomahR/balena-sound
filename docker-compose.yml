@@ -10,7 +10,8 @@ services:
     volumes:
       - bluetoothcache:/var/cache/bluetooth
       - snapcast:/var/cache/snapcast
-    depends_on: wm8960-soundcard
+    depends_on: 
+      - wm8960-soundcard
   airplay:
     build: ./airplay
     restart: on-failure
@@ -20,7 +21,8 @@ services:
       io.balena.features.dbus: 1
     volumes:
       - snapcast:/var/cache/snapcast
-    depends_on: wm8960-soundcard
+    depends_on: 
+      - wm8960-soundcard
   spotify:
     build: ./spotify
     restart: on-failure
@@ -29,7 +31,8 @@ services:
     volumes:
       - spotifycache:/var/cache/raspotify
       - snapcast:/var/cache/snapcast
-    depends_on: wm8960-soundcard
+    depends_on: 
+      - wm8960-soundcard
   fleet-supervisor:
     build: ./fleet-supervisor
     restart: on-failure
@@ -56,7 +59,8 @@ services:
     privileged: true
     volumes:
       - snapcast:/var/cache/snapcast
-    depends_on: wm8960-soundcard
+    depends_on: 
+      - wm8960-soundcard
   upnp:
     build: ./upnp
     restart: on-failure 
@@ -65,7 +69,8 @@ services:
       - 49494:49494
     volumes:
       - snapcast:/var/cache/snapcast
-    depends_on: wm8960-soundcard
+    depends_on: 
+      - wm8960-soundcard
   wm8960-soundcard:
     build:
       context: ./wm8960-soundcard
